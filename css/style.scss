@@ -30,11 +30,12 @@ body {
     }
 }
 
-.menu{
+.product{
   &__container {
     margin-top: 60px;
     margin-left: 5%;
   }
+
   &__items {
     border: 1px black solid;
     margin-top: 60px;
@@ -42,7 +43,31 @@ body {
     height: auto;
     width: 90%;
   }
-  &__name {
+
+  &__title {
+    display: grid;
+    grid-template-columns: 50% 42%;
+    justify-content: center;
+    margin-bottom: -80px;
+  }
+
+  &__pricename {
     font-size: 30px;
+  }
+
+  &__name {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__nametitle {
+    font-size: 30px;
+  }
+
+  &__contain {
+    display: grid;
+    grid-template-columns: 50% 40%;
+    justify-content: center;
   }
 }

@@ -29,19 +29,36 @@ body {
   margin-right: 20px;
 }
 
-.menu__container {
+.product__container {
   margin-top: 60px;
   margin-left: 5%;
 }
-.menu__items {
+.product__items {
   border: 1px black solid;
   margin-top: 60px;
   margin-left: 2.5%;
   height: auto;
   width: 90%;
 }
-.menu__name {
+.product__title {
+  display: grid;
+  grid-template-columns: 50% 42%;
+  justify-content: center;
+  margin-bottom: -80px;
+}
+.product__pricename {
   font-size: 30px;
+}
+.product__name:hover {
+  cursor: pointer;
+}
+.product__nametitle {
+  font-size: 30px;
+}
+.product__contain {
+  display: grid;
+  grid-template-columns: 50% 40%;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */
