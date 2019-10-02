@@ -1,8 +1,11 @@
 let method = "";
 let category_id = "";
 
-function prodClick() {
-    console.log(event.target.className);
+function prodClick(cat) {
+    let clickevent = event.target.className.split(' ')[1];
+    let id = cat.products.find(catProd => catProd.id == clickevent)
+    console.log(id.name);
+    alert(clickevent);
 }
 
 function api() {
@@ -51,7 +54,7 @@ function categoryAdd(cat) {
                 prodcontainer.className = "product__contain";
 
                 let productname = document.createElement("p");
-                productname.className = "product__name " + catProd.name;
+                productname.className = "product__name " + catProd.id;
                 productname.innerHTML = catProd.name;
                 catcontainer.appendChild(productname);
 
@@ -65,7 +68,7 @@ function categoryAdd(cat) {
                 category.appendChild(prodcontainer);
 
                 productname.addEventListener("click", function() {
-                    prodClick();
+                    prodClick(cat);
                 })
             })
 
