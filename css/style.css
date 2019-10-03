@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   height: auto;
-  background-color: rgba(7, 127, 207, 0.6);
+  background-color: #ff0000;
   top: 0;
   left: 0;
   right: 0;
@@ -42,7 +42,7 @@ body {
 }
 .product__title {
   display: grid;
-  grid-template-columns: 50% 42%;
+  grid-template-columns: 20% 50% 20.5%;
   justify-content: center;
   margin-bottom: -80px;
 }
@@ -55,9 +55,12 @@ body {
 .product__nametitle {
   font-size: 30px;
 }
+.product__description {
+  font-size: 30px;
+}
 .product__contain {
   display: grid;
-  grid-template-columns: 50% 40%;
+  grid-template-columns: 20% 50% 20%;
   justify-content: center;
 }
 

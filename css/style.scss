@@ -11,10 +11,11 @@ body {
     align-items: center;
     justify-content: flex-end;
     height: auto;
-    background-color: rgba(#077fcf, 0.6);
+    background-color: #ff0000;
     top: 0;
     left: 0;
     right: 0;  
+
     &__logo {
       margin: 0 auto 0 55px;
       width: 100px;
@@ -46,7 +47,7 @@ body {
 
   &__title {
     display: grid;
-    grid-template-columns: 50% 42%;
+    grid-template-columns: 20% 50% 20.5%;
     justify-content: center;
     margin-bottom: -80px;
   }
@@ -65,9 +66,13 @@ body {
     font-size: 30px;
   }
 
+  &__description {
+    font-size: 30px;
+  }
+
   &__contain {
     display: grid;
-    grid-template-columns: 50% 40%;
+    grid-template-columns: 20% 50% 20%;
     justify-content: center;
   }
 }

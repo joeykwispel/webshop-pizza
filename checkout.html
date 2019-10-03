@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img class="navbar__logo" src="img/pizza-logo.png" alt="Logo">
+        <li class="navbar__item"><a href="index.html">Home</a></li>
+        <li class="navbar__item"><a href="menu.html">Menu</a></li>
+        <li class="navbar__item navbar--last"><a href="#">Checkout</a></li>
+        <i src="img/shopping-cart-solid.svg"></i>
+    </nav>
+    <section>
+        <form class="checkout__form">
+            <label>First name:</label>
+            <input type="text" name="firstname" placeholder="First name">
+            <label>Last name:</label>
+            <input type="text" name="lastname" placeholder="Last name">
+            <label>e-mail:</label>
+            <input type="email" name="email" placeholder="e-mail">
+            <label>phone number:</label>
+            <input type="tel" name="phonenumber" maxlength="10" placeholder="06 12345678">
+            <label>zipcode:</label>
+            <input type="text" name="zipcode" maxlength="5" placeholder="zipcode">
+            <label>streetname:</label>
+            <input type="text" name="streetname" maxlength="5" placeholder="streetname">
+            <label>house number:</label>
+            <input type="text" name="housenumber" maxlength="5" placeholder="30">
+        <div>
+            <input type="radio" name="gender" value="male" checked> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+        </div>
+            <input type="submit" value="Submit">
+        </form>
+
+        <div>
+            
+        </div>
+    </section>
+</body>
+<script src="javascript/webshop.js"></script>
+
+</html>
