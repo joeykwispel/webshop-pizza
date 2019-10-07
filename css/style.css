@@ -34,10 +34,23 @@ body {
   margin-right: 20px;
 }
 .navbar__winkel {
-  width: 70px;
+  width: 50px;
   margin-right: 40px;
-  margin-left: 40px;
 }
+
+.shoppingcart {
+  display: grid;
+  grid-template-columns: 78% 100%;
+}
+.shoppingcart__info {
+  background-color: #ff0000;
+  padding: 1%;
+  width: 20%;
+  height: auto;
+  display: none;
+  z-index: 1;
+}
+
 .product__container {
   margin-left: 5%;
 }
@@ -72,8 +85,25 @@ body {
 }
 
 .checkout {
+  width: 100%;
   display: grid;
-  grid-template-columns: 45% 45%;
+  grid-template-columns: 50% 50%;
+}
+.checkout__products {
+  height: 34.5%;
+  border-radius: 5px;
+  border: 1px black solid;
+  overflow: auto;
+  margin: 3%;
+}
+.checkout__text {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+.checkout__btn {
+  border-radius: 10px;
+  background-color: #3cbd00;
+  color: white;
 }
 
 .form-inputs {
@@ -82,6 +112,7 @@ body {
 }
 .form-inputs__input {
   display: block;
+  border-radius: 5px;
   width: 80%;
   box-sizing: border-box;
   border: 1px solid #BEBEBE;

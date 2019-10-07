@@ -3,10 +3,36 @@ let category_id = "";
 let orders = localStorage.getItem("order");
 let order = [];
 
+document.querySelector(".navbar__shoppingcart").addEventListener("click", function(){
+    var x = document.querySelector(".shoppingcart__info");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+})
+
 function prodClick(cat) {
     console.log(cat);
     order.push(cat);
     localStorage.setItem("order", JSON.stringify(order));
+}
+
+function shoppingCart(catProd){
+    let shopitem = document.createElement("li")
+    shopitem.className = "cart__prod";
+
+    shopitem.innerHTML = catProd.name + " " + catProd.price + "$";
+
+    let x = document.querySelector(".cart__items")
+    x.appendChild(shopitem);
+
+    let total = "$";
+    for (var i = 0; i < order.length; i++) {
+        total += catProd.price[i];
+    }
+    let totalprice = document.querySelector(".shoppingcart__total");
+    totalprice.innerHTML = total;
 }
 
 function api() {
@@ -80,6 +106,7 @@ function categoryAdd(cat) {
 
                 productname.addEventListener("click", function () {
                     prodClick(catProd);
+                    shoppingCart(catProd);
                 })
             })
 

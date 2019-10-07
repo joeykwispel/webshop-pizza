@@ -2,8 +2,8 @@
 
 <head>
     <title>Its me Mario</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -11,10 +11,22 @@
         <img class="navbar__logo" src="img/pizza-logo.png" alt="Logo">
         <li class="navbar__item"><a href="index.html">Home</a></li>
         <li class="navbar__item"><a href="#">Menu</a></li>
-        <li class="navbar__item navbar--last"><a href="checkout.html">Checkout</a></li>
+        <li class="navbar__item navbar__shoppingcart"><a href="#">Shoppingcart</a></li>
         <img class="navbar__winkel" src="img/winkelwagen.png" alt="winkelwagen">
-
     </nav>
+    <div class='shoppingcart'>
+        <div></div>
+        <div class="shoppingcart__info">
+            <h2>Your Shopping Cart</h2>
+            <ul class='cart__items'></ul>
+              <div class='finalTotal'>
+                Total
+                <span class="shoppingcart__total">$</span>
+              </div>
+              <button class='checkout'><a href="checkout.html">Check Out</a></button>
+              <p class='error'></p>
+        </div>
+    </div>
     <section id="products" class="product__container">
         <section class="product__info"></section>
 
