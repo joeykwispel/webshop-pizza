@@ -19,21 +19,35 @@ body {
     &__logo {
       margin: 0 auto 0 55px;
       width: 100px;
+      padding: 15px;
     }
   
     &__item {
       list-style-type: none;
       color: black;
-      margin-left: 20px; 
+      font-size: 40px;
+      padding-left: 40px;
+      text-align: center;
+      width: 100%;
+      color: #BEBEBE;
     }
+
     &--last {
       margin-right: 20px;
+    }
+
+    &__winkel {
+      width: 70px;
+      margin-right: 40px;
+      margin-left: 40px;
+      &:hover {
+
+      }
     }
 }
 
 .product{
   &__container {
-    margin-top: 60px;
     margin-left: 5%;
   }
 
@@ -49,7 +63,6 @@ body {
     display: grid;
     grid-template-columns: 20% 50% 20.5%;
     justify-content: center;
-    margin-bottom: -80px;
   }
 
   &__pricename {
@@ -76,3 +89,31 @@ body {
     justify-content: center;
   }
 }
+
+.checkout {
+  display: grid;
+  grid-template-columns: 45% 45%;
+}
+
+.form-inputs {
+        width: 100%;
+        padding: 10px;
+        &__input {
+            display: block;
+            width: 80%;
+            box-sizing: border-box;
+            border: 1px solid #BEBEBE;
+            padding: 7px;
+            outline: none;
+            margin: 1%;
+
+            &:focus {
+                box-shadow: 0 0 8px #287e00;
+                border: 0 0 8px #287e00;
+            }
+        }
+
+        &__gender {
+          padding: 30px;
+        }
+    }

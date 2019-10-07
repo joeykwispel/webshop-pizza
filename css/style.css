@@ -19,18 +19,26 @@ body {
 .navbar__logo {
   margin: 0 auto 0 55px;
   width: 100px;
+  padding: 15px;
 }
 .navbar__item {
   list-style-type: none;
   color: black;
-  margin-left: 20px;
+  font-size: 40px;
+  padding-left: 40px;
+  text-align: center;
+  width: 100%;
+  color: #BEBEBE;
 }
 .navbar--last {
   margin-right: 20px;
 }
-
+.navbar__winkel {
+  width: 70px;
+  margin-right: 40px;
+  margin-left: 40px;
+}
 .product__container {
-  margin-top: 60px;
   margin-left: 5%;
 }
 .product__items {
@@ -44,7 +52,6 @@ body {
   display: grid;
   grid-template-columns: 20% 50% 20.5%;
   justify-content: center;
-  margin-bottom: -80px;
 }
 .product__pricename {
   font-size: 30px;
@@ -62,6 +69,32 @@ body {
   display: grid;
   grid-template-columns: 20% 50% 20%;
   justify-content: center;
+}
+
+.checkout {
+  display: grid;
+  grid-template-columns: 45% 45%;
+}
+
+.form-inputs {
+  width: 100%;
+  padding: 10px;
+}
+.form-inputs__input {
+  display: block;
+  width: 80%;
+  box-sizing: border-box;
+  border: 1px solid #BEBEBE;
+  padding: 7px;
+  outline: none;
+  margin: 1%;
+}
+.form-inputs__input:focus {
+  box-shadow: 0 0 8px #287e00;
+  border: 0 0 8px #287e00;
+}
+.form-inputs__gender {
+  padding: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

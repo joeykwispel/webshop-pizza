@@ -4,11 +4,9 @@ let orders = localStorage.getItem("order");
 let order = [];
 
 function prodClick(cat) {
-    let clickevent = event.target.className.split(' ')[1];
-    let id = cat.products.find(catProd => catProd.id == clickevent);
+    console.log(cat);
+    order.push(cat);
     localStorage.setItem("order", JSON.stringify(order));
-    console.log(id.name);
-    order.push(id.name);
 }
 
 function api() {
@@ -21,42 +19,9 @@ function api() {
         })
 }
 
-function checkout() {
-    orders.forEach(order => {
-        let ordercontainer = document.createElement("div")
-            ordercontainer.className = "checkout__container";
-
-            let ordertitle = document.createElement("div")
-            ordertitle.className = "checkout__title";
-
-            let orderpricen = document.createElement("h3")
-            orderpricen.className = "checkout__pricename";
-
-            let ordername = document.createElement("h3")
-            ordername.className = "checkout__nametitle";
-
-            let orderdesc = document.createElement("h3")
-            orderdesc.className = "checkout__description";
-
-
-            ordername.innerHTML = cat.name;
-            orderpricen.innerHTML = "Price";
-            orderdesc.innerHTML = "Description";
-
-
-            ordertitle.appendChild(ordername);
-            ordertitle.appendChild(orderdesc);
-            ordertitle.appendChild(orderpricen);
-            category.appendChild(ordertitle);
-            category.appendChild(ordercontainer);
-    })
-}
-
 function categoryAdd(cat) {
     cat.forEach(cat => {
         if (cat.products.length > 0) {
-            let btncategory = document.createElement("button")
-            btncategory.className = "product__button";
 
             let category = document.createElement("article")
             category.className = "product__items";
@@ -114,7 +79,7 @@ function categoryAdd(cat) {
                 category.appendChild(prodcontainer);
 
                 productname.addEventListener("click", function () {
-                    prodClick(cat);
+                    prodClick(catProd);
                 })
             })
 
