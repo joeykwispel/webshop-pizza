@@ -11,8 +11,7 @@
         <img class="navbar__logo" src="img/pizza-logo.png" alt="Logo">
         <li class="navbar__item"><a href="index.html">Home</a></li>
         <li class="navbar__item"><a href="menu.html">Menu</a></li>
-        <li class="navbar__item navbar--last"><a href="#">Checkout</a></li>
-        <img class="navbar__winkel" src="img/winkelwagen.png" alt="winkelwagen">
+        <li class="navbar__item navbar__shoppingcart"><a href="#">Shoppingcart</a></li>
     </nav>
     <section class="checkout">
         <form class="form-inputs">
@@ -35,10 +34,15 @@
             <input type="radio" name="gender" value="female"> Female
             <input type="radio" name="gender" value="other"> Other
         </div>
-            <input class="checkout__btn" type="submit" value="Submit">
         </form>
+        <div class="checkout__info">
         <ul class="checkout__products">
         </ul>
+        <div class="checkout__end">
+        <h3 class="checkout__totalprice"></h3>
+        <input class="checkout__submit" type="submit" value="Submit">
+        </div>
+        </div>
     </section>
 </body>
 <script src="javascript/checkout.js"></script>

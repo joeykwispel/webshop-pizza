@@ -2,12 +2,14 @@ let method = "";
 let category_id = "";
 let orders = localStorage.getItem("order");
 let order = [];
+let price = [];
+
 
 document.querySelector(".navbar__shoppingcart").addEventListener("click", function(){
     var x = document.querySelector(".shoppingcart__info");
   if (x.style.display === "block") {
     x.style.display = "none";
-  } else {
+} else {
     x.style.display = "block";
   }
 })
@@ -26,13 +28,14 @@ function shoppingCart(catProd){
 
     let x = document.querySelector(".cart__items")
     x.appendChild(shopitem);
-
-    let total = "$";
-    for (var i = 0; i < order.length; i++) {
-        total += catProd.price[i];
-    }
+    price.push(catProd.price);
     let totalprice = document.querySelector(".shoppingcart__total");
-    totalprice.innerHTML = total;
+    let sum = 0;
+    
+    for (let i = 0; i < price.length; i++) {
+        sum += Math.max(price[i]);
+    }
+    totalprice.innerHTML = "$" + sum;
 }
 
 function api() {

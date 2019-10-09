@@ -38,11 +38,9 @@ body {
   margin-right: 40px;
 }
 
-.shoppingcart {
-  display: grid;
-  grid-template-columns: 78% 100%;
-}
 .shoppingcart__info {
+  margin-left: 78%;
+  position: absolute;
   background-color: #ff0000;
   padding: 1%;
   width: 20%;
@@ -90,7 +88,8 @@ body {
   grid-template-columns: 50% 50%;
 }
 .checkout__products {
-  height: 34.5%;
+  min-height: 445px;
+  max-height: 445px;
   border-radius: 5px;
   border: 1px black solid;
   overflow: auto;
@@ -104,6 +103,21 @@ body {
   border-radius: 10px;
   background-color: #3cbd00;
   color: white;
+}
+.checkout__end {
+  display: grid;
+  grid-template-columns: 70% 26.5%;
+}
+.checkout__submit {
+  margin-top: 10%;
+  height: 50%;
+  border-radius: 10px;
+  background-color: #3cbd00;
+  color: white;
+}
+.checkout__totalprice {
+  padding-left: 3%;
+  padding-top: 3%;
 }
 
 .form-inputs {
