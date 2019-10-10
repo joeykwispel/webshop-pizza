@@ -1,23 +1,36 @@
-let orders = JSON.parse(localStorage.getItem("order"));
+let selected = JSON.parse(localStorage.getItem("selected"));
 
 function deleteOrder(data) {
-    orders.splice(data.target.dataset.id, 1);
-    localStorage.setItem("order", JSON.stringify(orders));
+    selected.order.splice(data.target.dataset.id, 1);
+    localStorage.setItem("selected", JSON.stringify(selected));
     location.reload();
 }
 
+
+
 function loadOrder() {
     const list = document.querySelector(".checkout__products");
-    if (orders === null) {
+    if (selected === null) {
         let button = document.querySelector(".checkout__btn");
     } else {
         let i = 0;
-        orders.forEach(order => {
+        selected.order.forEach(order => {
             // Count foreach. Use for delete
             let prodName = order.name;
             let prodPrice = order.price;
-            let Proditem = document.createTextNode(prodName + " Price: " + prodPrice + "$");
+            let prodAmount = order.amount;
+            let priceAmount = order.amount * order.price;
+            let Proditem = document.createTextNode(prodName + " Price: " + "$" + prodPrice + " x " + prodAmount + " = " + priceAmount);
             let prodList = document.createElement("li");
+
+            let btnMin = document.createElement("button")
+            btnMin.className = "cart__min";
+            btnMin.innerHTML = "-";
+            let btnPlus = document.createElement("button")
+            btnPlus.className = "cart__plus";
+            btnPlus.innerHTML = "+";
+            list.appendChild(btnPlus);
+            list.appendChild(btnMin);
 
             let prodButton = document.createElement("button");
             let prodButtontext = document.createTextNode("Delete");
@@ -42,17 +55,22 @@ function loadOrder() {
 }
 
 function totalPrice() {
-    const totalPriceElement = document.querySelector(".checkout__totalprice");
-    let totalPrice = 0;
+    let total = 0;
     let counter = 0;
 
-    for (let order in orders) {
+    selected.order.forEach(info => {
         counter++
-        totalPrice += parseFloat(orders[order].price);
+        total += parseFloat(info.price * info.amount);
+    })
+    let totalPriceElement = document.querySelector(".checkout__totalprice");
+    if (counter == 0) {
+        totaltext = document.createTextNode("Shopping cart is empty");
+    }
+    else {
+        totaltext = document.createTextNode("The total price is: " + total + "$");
     }
 
-
-    totalPriceElement.innerHTML = counter === 0 ? "Shoppingcart is empty" : "The total price is: $" + totalPrice;
+    totalPriceElement.appendChild(totaltext);
 }
 
 window.onload = function () {
