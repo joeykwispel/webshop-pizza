@@ -17,10 +17,9 @@ document.querySelector(".navbar__shoppingcart").addEventListener("click", functi
 function checkOrder() {
     if (localStorage.getItem("selected") != undefined) {
         selected = JSON.parse(localStorage.getItem("selected"));
-        console.log(selected);
     }
     else {
-        console.log("Geen bestelling");
+        // geen bestelling
     }
 }
 
@@ -79,20 +78,7 @@ function shoppingCart() {
         totalPrice = document.createTextNode("The total price is: " + "$" +total);
     }
 
-    totalPriceElement.appendChild(totalPrice);
-    
-    // let prodTotal = data.amount * data.price;
-    // console.log(prodTotal);
-    
-    // let totalprice = document.querySelector(".shoppingcart__total");
-    // totalprice.innerHTML = "$" + prodTotal;
-    // let totalprice = document.querySelector(".shoppingcart__total");
-    // let sum = 0;
-    
-    // for (let i = 0; i < price.length; i++) {
-    //     sum += Math.max(price[i]);
-    // }
-    
+    totalPriceElement.appendChild(totalPrice);    
 }
 
 
