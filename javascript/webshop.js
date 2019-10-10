@@ -1,49 +1,106 @@
 let method = "";
 let category_id = "";
-let orders = localStorage.getItem("order");
-let order = [];
-let price = [];
+let selected = {
+    order: []
+}
 
-
-document.querySelector(".navbar__shoppingcart").addEventListener("click", function(){
-    var x = document.querySelector(".shoppingcart__info");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-} else {
-    x.style.display = "block";
-  }
+document.querySelector(".navbar__shoppingcart").addEventListener("click", function () {
+    let x = document.querySelector(".shoppingcart__info");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
 })
 
-function prodClick(cat) {
-    console.log(cat);
-    order.push(cat);
-    localStorage.setItem("order", JSON.stringify(order));
-}
 
-function shoppingCart(catProd){
-    let shopitem = document.createElement("li")
-    shopitem.className = "cart__prod";
-
-    shopitem.innerHTML = catProd.name + " " + catProd.price + "$";
-
-    let x = document.querySelector(".cart__items")
-    x.appendChild(shopitem);
-    price.push(catProd.price);
-    let totalprice = document.querySelector(".shoppingcart__total");
-    let sum = 0;
-    
-    for (let i = 0; i < price.length; i++) {
-        sum += Math.max(price[i]);
+function checkOrder() {
+    if (localStorage.getItem("selected") != undefined) {
+        selected = JSON.parse(localStorage.getItem("selected"));
+        console.log(selected);
     }
-    totalprice.innerHTML = "$" + sum;
+    else {
+        console.log("Geen bestelling");
+    }
 }
+
+function orderProds(catProd) {
+    let check = selected.order.find(e => e.name === catProd.name);
+    
+    if (check == undefined) {
+        catProd['amount'] = 1;
+        selected.order.push(catProd);
+    }
+    else {
+        catProd['amount'] = check.amount;
+        catProd['amount']++;
+        check.amount = catProd['amount'];
+    }
+    
+    
+    localStorage.setItem("selected", JSON.stringify(selected));
+}
+
+function shoppingCart() {
+    document.querySelector('.shoppingcart__total').innerHTML = "";
+    document.querySelector('.cart__items').innerHTML = "";
+    a = selected.order;
+    a.forEach(data => {
+        let shopitem = document.createElement("li")
+        shopitem.className = "cart__prod";
+
+        let x = document.querySelector(".cart__items")
+        let btnMin = document.createElement("button")
+        btnMin.className = "cart__min";
+        btnMin.innerHTML = "-";
+        let btnPlus = document.createElement("button")
+        btnPlus.className = "cart__plus";
+        btnPlus.innerHTML = "+";
+        x.appendChild(shopitem);
+        x.appendChild(btnPlus);
+        x.appendChild(btnMin);
+
+        shopitem.innerHTML = data.name + " "  + data.amount + " x " + "$" + data.price;
+
+
+    });
+    let total = 0;
+    let counter = 0;
+
+    selected.order.forEach(info => {
+        counter++
+        total += parseFloat(info.price * info.amount);
+    })
+    let totalPriceElement = document.querySelector(".shoppingcart__total");
+    if (counter == 0) {
+        totalPrice = document.createTextNode("Shopping cart is empty");
+    }
+    else {
+        totalPrice = document.createTextNode("The total price is: " + "$" +total);
+    }
+
+    totalPriceElement.appendChild(totalPrice);
+    
+    // let prodTotal = data.amount * data.price;
+    // console.log(prodTotal);
+    
+    // let totalprice = document.querySelector(".shoppingcart__total");
+    // totalprice.innerHTML = "$" + prodTotal;
+    // let totalprice = document.querySelector(".shoppingcart__total");
+    // let sum = 0;
+    
+    // for (let i = 0; i < price.length; i++) {
+    //     sum += Math.max(price[i]);
+    // }
+    
+}
+
 
 function api() {
     fetch(`https://competa-api.dev.competa.com/api/${method}`).then(result => {
         return result.json();
     })
         .then(function (categories) {
-            console.log(categories);
             categoryAdd(categories);
         })
 }
@@ -108,15 +165,12 @@ function categoryAdd(cat) {
                 category.appendChild(prodcontainer);
 
                 productname.addEventListener("click", function () {
-                    prodClick(catProd);
-                    shoppingCart(catProd);
+                    shoppingCart();
+                    orderProds(catProd)
                 })
             })
 
             document.getElementById("products").appendChild(category);
-        }
-        else {
-            console.log(`${cat.name} heeft geen producten`);
         }
     })
 
@@ -125,4 +179,6 @@ function categoryAdd(cat) {
 window.onload = function () {
     method = "categoriesWithProducts";
     api()
+    checkOrder();
+    shoppingCart();
 }
